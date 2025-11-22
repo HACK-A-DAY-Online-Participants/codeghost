@@ -1,0 +1,92 @@
+{
+  "name": "codeghost",
+  "displayName": "CodeGhost",
+  "description": "AI-powered bug prediction using your repository's commit history",
+  "version": "0.0.1",
+  "publisher": "codeghost",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeghost.initialize",
+        "title": "CodeGhost: Initialize (Scan Repository)"
+      },
+      {
+        "command": "codeghost.refreshPatterns",
+        "title": "CodeGhost: Refresh Patterns"
+      },
+      {
+        "command": "codeghost.toggleHighlights",
+        "title": "CodeGhost: Toggle Highlights"
+      },
+      {
+        "command": "codeghost.showStats",
+        "title": "CodeGhost: Show Statistics"
+      }
+    ],
+    "configuration": {
+      "title": "CodeGhost",
+      "properties": {
+        "codeghost.maxCommits": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum number of commits to scan for bug patterns"
+        },
+        "codeghost.sensitivity": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "default": "medium",
+          "description": "Sensitivity level for bug detection"
+        },
+        "codeghost.githubToken": {
+          "type": "string",
+          "default": "",
+          "description": "GitHub personal access token (leave empty to use stored token)"
+        },
+        "codeghost.enableGPT": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable GPT-powered explanations (requires API key)"
+        },
+        "codeghost.scanOnSaveOnly": {
+          "type": "boolean",
+          "default": false,
+          "description": "Only scan code on save instead of real-time"
+        },
+        "codeghost.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable CodeGhost highlights"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  }
+}

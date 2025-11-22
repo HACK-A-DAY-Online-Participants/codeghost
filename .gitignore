@@ -1,0 +1,16 @@
+node_modules
+out
+*.vsix
+.vscode-test/
+.codeghost/
+PROJECT_SUMMARY.md
+SETUP.md
+HOW_TO_RUN.md
+HACKATHON_PRESENTATION.md
+plan.md
+QUICKSTART-DEBUG.md
+QUICKSTART.md
+TESTING.md
+DEBUG.md
+FIXES.md
+test-fetcher.js
