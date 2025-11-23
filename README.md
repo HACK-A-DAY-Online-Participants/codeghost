@@ -14,16 +14,21 @@ CodeGhost is a VS Code extension that predicts potentially buggy code in real-ti
 - **💡 Contextual Explanations**: Shows which past commits had similar bugs
 - **⚡ Lightning Fast**: <50ms response time, non-intrusive UI
 - **🎨 Beautiful UI**: Ghost-like highlights with hover tooltips
+- **🛠️ Quick Fix Suggestions**: One-click fixes for common patterns (💡 light bulb)
+- **📊 Statistics Dashboard**: Visual overview of detected patterns
+- **🔄 Local Git Support**: Works with local repositories (no GitHub token needed)
 
 ## 🚀 Quick Start
 
 ### Installation
 
 1. Install from VS Code Marketplace (coming soon) or build from source
-2. Open a GitHub repository in VS Code
+2. Open a Git repository in VS Code
 3. Run command: `CodeGhost: Initialize`
-4. Enter your GitHub Personal Access Token
-5. Wait for CodeGhost to scan your repository history
+4. Choose scanning mode:
+   - **Use Local Git History** (recommended) - No GitHub token needed
+   - **Fetch from GitHub** - Requires GitHub Personal Access Token
+5. Wait for CodeGhost to scan your repository history (10-20 seconds)
 
 ### Usage
 
@@ -34,6 +39,14 @@ Once initialized, CodeGhost automatically scans your code as you type and highli
 - Bug category
 - Explanation of the issue
 - References to similar bugs in past commits
+
+**Click the 💡 light bulb** on highlighted lines to see quick fix suggestions.
+
+**View statistics** with command `CodeGhost: Show Statistics` to see:
+- All detected patterns with examples
+- Category breakdown
+- Risk distribution
+- Commit references
 
 ## 📋 Requirements
 
@@ -78,13 +91,17 @@ Access settings via `File > Preferences > Settings > CodeGhost`
 
 ## 🐛 Bug Categories Detected
 
-- **Null Check Missing**: Missing null/undefined guards
-- **Off-by-One Loop**: Array index boundary errors
-- **Missing Await**: Forgotten await keywords
-- **Undefined Access**: Unsafe object/array access
-- **Type Error**: Type mismatches
-- **Race Condition**: Concurrency issues
-- **And more...**
+- **Null Check Missing** (Risk 8): Missing null/undefined guards, missing optional chaining
+- **Off-by-One Loop** (Risk 9): Array index boundary errors (<=  instead of <)
+- **Missing Await** (Risk 7): Forgotten await keywords on async functions
+- **Undefined Access** (Risk 7): Unsafe object/array access
+- **Type Error** (Risk 5): Type mismatches, loose equality
+- **Race Condition** (Risk 7): Concurrency issues in state management
+- **Memory Leak** (Risk 6): Missing cleanup for timers, event listeners
+- **Missing Error Handling** (Risk 7): No try-catch for risky operations
+- **Unhandled Promise** (Risk 6): Promise chains without .catch()
+- **Var Scoping** (Risk 4): Using `var` instead of `let`/`const`
+- **Loose Equality** (Risk 5): Using `==` instead of `===`
 
 ## 📊 Example
 
@@ -150,12 +167,15 @@ codeghost/
 - ✅ Risk scoring
 - ✅ Hover explanations
 
-### V1 (Planned)
-- [ ] Inline fix suggestions
+### V1 (Current)
+- ✅ Inline fix suggestions (Quick Fix 💡)
+- ✅ Statistics panel with visual breakdown
+- ✅ Local Git repository support
+- ✅ 11+ bug pattern types
+- ✅ Scan-on-save mode
 - [ ] AST-level pattern matching
 - [ ] Project-wide bug heatmap
 - [ ] Team dashboard
-- [ ] Sensitivity settings UI
 
 ### Future
 - [ ] ML-based prediction

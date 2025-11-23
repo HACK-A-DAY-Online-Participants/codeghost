@@ -76,19 +76,9 @@ export class PatternStore {
    * Get patterns filtered by language
    */
   getPatternsByLanguage(language: string): BugPattern[] {
-    console.log(`[CodeGhost PatternStore] Filtering patterns for language: ${language}`);
-    console.log(`[CodeGhost PatternStore] Total patterns in store: ${this.memory.patterns.length}`);
-    
     const filtered = this.memory.patterns.filter(
       (p) => p.language === language || p.language === 'unknown'
     );
-    
-    console.log(`[CodeGhost PatternStore] Patterns after filtering: ${filtered.length}`);
-    if (filtered.length > 0) {
-      filtered.forEach(p => {
-        console.log(`[CodeGhost PatternStore] - Pattern: ${p.category}, language: ${p.language}, regex: ${p.regex.substring(0, 50)}`);
-      });
-    }
     
     return filtered;
   }

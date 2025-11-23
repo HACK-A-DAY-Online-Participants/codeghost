@@ -46,6 +46,10 @@ export type BugCategory =
   | 'memory_leak'
   | 'type_error'
   | 'logic_error'
+  | 'loose_equality'
+  | 'missing_error_handling'
+  | 'unhandled_promise'
+  | 'var_scoping'
   | 'other';
 
 export interface GitHubCommit {

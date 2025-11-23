@@ -37,11 +37,6 @@ export class CodeScanner {
         const matches = line.match(regex);
 
         if (matches) {
-          console.log(`[CodeGhost Scanner] 🎯 MATCH on line ${lineNumber}!`);
-          console.log(`[CodeGhost Scanner]   Line: "${line.trim()}"`);
-          console.log(`[CodeGhost Scanner]   Pattern: ${pattern.category}`);
-          console.log(`[CodeGhost Scanner]   Regex: ${pattern.regex}`);
-          
           const riskScore = this.riskScorer.calculateRiskScore(
             pattern,
             filePath,

@@ -1,7 +1,7 @@
 {
   "name": "codeghost",
-  "displayName": "CodeGhost",
-  "description": "AI-powered bug prediction using your repository's commit history",
+  "displayName": "CodeGhost 👻",
+  "description": "Learn from your mistakes: AI-powered bug detection using repository history. Highlights risky code patterns in real-time with 11+ bug types detected.",
   "version": "0.0.1",
   "publisher": "codeghost",
   "engines": {
@@ -9,8 +9,30 @@
   },
   "categories": [
     "Linters",
+    "Programming Languages",
     "Other"
   ],
+  "keywords": [
+    "bug detection",
+    "code quality",
+    "static analysis",
+    "git history",
+    "pattern recognition",
+    "debugging",
+    "linter",
+    "code review",
+    "typescript",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HACK-A-DAY-Online-Participants/codeghost"
+  },
+  "bugs": {
+    "url": "https://github.com/HACK-A-DAY-Online-Participants/codeghost/issues"
+  },
+  "homepage": "https://github.com/HACK-A-DAY-Online-Participants/codeghost#readme",
+  "license": "MIT",
   "activationEvents": [
     "onStartupFinished"
   ],
